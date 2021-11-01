@@ -1,0 +1,157 @@
+<?xml version="1.0" standalone="yes"?>
+<Program>
+<SequentialCommand>
+<SequentialCommand>
+<SequentialCommand>
+<SequentialCommand>
+<SequentialCommand>
+<SequentialCommand>
+<SequentialCommand>
+<SequentialCommand>
+<SequentialCommand>
+<SequentialCommand>
+<SequentialCommand>
+<SequentialCommand>
+<CallCommand>
+<Identifier value="saveDB"/>
+<SingleActualParameterSequence>
+<VarActualParameter>
+<SimpleVname>
+<Identifier value="data"/>
+</SimpleVname>
+</VarActualParameter>
+</SingleActualParameterSequence>
+</CallCommand>
+<CallCommand>
+<Identifier value="deleteDB"/>
+<SingleActualParameterSequence>
+<VarActualParameter>
+<SimpleVname>
+<Identifier value="data"/>
+</SimpleVname>
+</VarActualParameter>
+</SingleActualParameterSequence>
+</CallCommand>
+</SequentialCommand>
+<CallCommand>
+<Identifier value="closeConnectionDB"/>
+<EmptyActualParameterSequence/>
+</CallCommand>
+</SequentialCommand>
+<CallCommand>
+<Identifier value="openConnectionDB"/>
+<EmptyActualParameterSequence/>
+</CallCommand>
+</SequentialCommand>
+<LetCommand>
+<CompoundSingleDeclaration>
+<VarDeclaration>
+<Identifier value="connection"/>
+<SimpleTypeDenoter>
+<Identifier value="DBConnection"/>
+</SimpleTypeDenoter>
+</VarDeclaration>
+</CompoundSingleDeclaration>
+<CallCommand>
+<Identifier value="openConnectionDB"/>
+<EmptyActualParameterSequence/>
+</CallCommand>
+</LetCommand>
+</SequentialCommand>
+<RepeatForIn>
+<InVarDecl>
+<Identifier value="i"/>
+<VnameExpression>
+<SimpleVname>
+<Identifier value="collection"/>
+</SimpleVname>
+</VnameExpression>
+</InVarDecl>
+<CallCommand>
+<Identifier value="saveDB"/>
+<SingleActualParameterSequence>
+<ConstActualParameter>
+<VnameExpression>
+<SimpleVname>
+<Identifier value="i"/>
+</SimpleVname>
+</VnameExpression>
+</ConstActualParameter>
+</SingleActualParameterSequence>
+</CallCommand>
+</RepeatForIn>
+</SequentialCommand>
+<RepeatForRangeDo>
+<RangeVarDecl>
+<Identifier value="a"/>
+<IntegerExpression>
+<IntegerLiteral value="1"/>
+</IntegerExpression>
+</RangeVarDecl>
+<IntegerExpression>
+<IntegerLiteral value="10"/>
+</IntegerExpression>
+<EmptyCommand/>
+</RepeatForRangeDo>
+</SequentialCommand>
+<RepeatForRangeWhile>
+<RangeVarDecl>
+<Identifier value="a"/>
+<IntegerExpression>
+<IntegerLiteral value="1"/>
+</IntegerExpression>
+</RangeVarDecl>
+<IntegerExpression>
+<IntegerLiteral value="10"/>
+</IntegerExpression>
+<CharacterExpression>
+<CharacterLiteral value="'T'"/>
+</CharacterExpression>
+<EmptyCommand/>
+</RepeatForRangeWhile>
+</SequentialCommand>
+<RepeatForRangeUntil>
+<RangeVarDecl>
+<Identifier value="i"/>
+<IntegerExpression>
+<IntegerLiteral value="3"/>
+</IntegerExpression>
+</RangeVarDecl>
+<CharacterExpression>
+<CharacterLiteral value="'F'"/>
+</CharacterExpression>
+<CharacterExpression>
+<CharacterLiteral value="'F'"/>
+</CharacterExpression>
+<EmptyCommand/>
+</RepeatForRangeUntil>
+</SequentialCommand>
+<RepeatWhileDoCommand>
+<IntegerExpression>
+<IntegerLiteral value="9"/>
+</IntegerExpression>
+<EmptyCommand/>
+</RepeatWhileDoCommand>
+</SequentialCommand>
+<RepeatUntilDoCommand>
+<IntegerExpression>
+<IntegerLiteral value="9"/>
+</IntegerExpression>
+<EmptyCommand/>
+</RepeatUntilDoCommand>
+</SequentialCommand>
+<RepeatDoWhileCommand>
+<IntegerExpression>
+<IntegerLiteral value="9"/>
+</IntegerExpression>
+<EmptyCommand/>
+</RepeatDoWhileCommand>
+</SequentialCommand>
+<RepeatDoUntilCommand>
+<IntegerExpression>
+<IntegerLiteral value="9"/>
+</IntegerExpression>
+<EmptyCommand/>
+</RepeatDoUntilCommand>
+</SequentialCommand>
+</Program>

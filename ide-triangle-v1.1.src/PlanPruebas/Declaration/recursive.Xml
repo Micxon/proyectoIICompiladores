@@ -1,0 +1,103 @@
+<?xml version="1.0" standalone="yes"?>
+<Program>
+<LetCommand>
+<SequentialDeclaration>
+<SequentialDeclaration>
+<RecursiveProcFuncs>
+<SequentialProcFunc>
+<ProcDeclaration>
+<Identifier value="a"/>
+<EmptyFormalParameterSequence/>
+<EmptyCommand/>
+</ProcDeclaration>
+<ProcDeclaration>
+<Identifier value="b"/>
+<EmptyFormalParameterSequence/>
+<SequentialCommand>
+<EmptyCommand/>
+<EmptyCommand/>
+</SequentialCommand>
+</ProcDeclaration>
+</SequentialProcFunc>
+</RecursiveProcFuncs>
+<RecursiveProcFuncs>
+<SequentialProcFunc>
+<FuncDeclaration>
+<Identifier value="getLetterA"/>
+<EmptyFormalParameterSequence/>
+<SimpleTypeDenoter>
+<Identifier value="Integer"/>
+</SimpleTypeDenoter>
+<CharacterExpression>
+<CharacterLiteral value="'A'"/>
+</CharacterExpression>
+</FuncDeclaration>
+<ProcDeclaration>
+<Identifier value="setOne"/>
+<SingleFormalParameterSequence>
+<ConstFormalParameter>
+<Identifier value="n"/>
+<SimpleTypeDenoter>
+<Identifier value="Integer"/>
+</SimpleTypeDenoter>
+</ConstFormalParameter>
+</SingleFormalParameterSequence>
+<AssignCommand>
+<SimpleVname>
+<Identifier value="n"/>
+</SimpleVname>
+<IntegerExpression>
+<IntegerLiteral value="1"/>
+</IntegerExpression>
+</AssignCommand>
+</ProcDeclaration>
+</SequentialProcFunc>
+</RecursiveProcFuncs>
+</SequentialDeclaration>
+<RecursiveProcFuncs>
+<SequentialProcFunc>
+<SequentialProcFunc>
+<FuncDeclaration>
+<Identifier value="getLetterB"/>
+<EmptyFormalParameterSequence/>
+<SimpleTypeDenoter>
+<Identifier value="char"/>
+</SimpleTypeDenoter>
+<CharacterExpression>
+<CharacterLiteral value="'B'"/>
+</CharacterExpression>
+</FuncDeclaration>
+<FuncDeclaration>
+<Identifier value="getLetterC"/>
+<EmptyFormalParameterSequence/>
+<SimpleTypeDenoter>
+<Identifier value="string"/>
+</SimpleTypeDenoter>
+<CharacterExpression>
+<CharacterLiteral value="'C'"/>
+</CharacterExpression>
+</FuncDeclaration>
+</SequentialProcFunc>
+<FuncDeclaration>
+<Identifier value="getLetterD"/>
+<EmptyFormalParameterSequence/>
+<SimpleTypeDenoter>
+<Identifier value="char"/>
+</SimpleTypeDenoter>
+<CharacterExpression>
+<CharacterLiteral value="'D'"/>
+</CharacterExpression>
+</FuncDeclaration>
+</SequentialProcFunc>
+</RecursiveProcFuncs>
+</SequentialDeclaration>
+<AssignCommand>
+<SimpleVname>
+<Identifier value="a"/>
+</SimpleVname>
+<IntegerExpression>
+<IntegerLiteral value="2555"/>
+</IntegerExpression>
+</AssignCommand>
+</LetCommand>
+</Program>

@@ -1,0 +1,9 @@
+let
+	var j allisonlajefeesunacrack 5;
+	& i := 'c';
+	var y : Integer
+in
+	skip
+end
+
+! EL & no puede comenzar una declaracion como las que viene siguiendo los ; es por esto que el programa deberia retornar error

@@ -1,0 +1,10 @@
+let
+	recursive
+		func doble ( var i : Integer ) : Integer ~
+			i*2
+	end
+in
+	skip
+end
+
+! el error ser produce ya que el recursive solo tiene una alternativa, se omite totalmente la segunda o las n que pueden venir
