@@ -1,3 +1,0 @@
-if 2=2 then skip elseif 3=3 then skip else puteol() end
-
-! Error: elseif no es | pero el error que da es que se esperaba un else en cambio del elseif, esto ya que como no es un | el flujo del programa piensa que es un singleCommand en vez de un sequentialCommmand
