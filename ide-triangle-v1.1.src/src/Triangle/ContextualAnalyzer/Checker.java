@@ -358,7 +358,12 @@ public final class Checker implements Visitor {
     return null;
   }
 
+  //MODIFICADO por Luis Chavarría
   public Object visitFuncDeclaration(FuncDeclaration ast, Object o) {
+    visitFuncDeclarationRec1(ast, o);
+    visitFuncDeclarationRec2(ast, o);
+    
+    /**
     ast.T = (TypeDenoter) ast.T.visit(this, null);
     idTable.enter (ast.I.spelling, ast); // permits recursion
     if (ast.duplicated)
@@ -371,10 +376,15 @@ public final class Checker implements Visitor {
     if (! ast.T.equals(eType))
       reporter.reportError ("body of function \"%\" has wrong type",
                             ast.I.spelling, ast.E.position);
+    */
     return null;
   }
-
+  
+  //MODIFICADO por Luis Chavarría
   public Object visitProcDeclaration(ProcDeclaration ast, Object o) {
+    visitProcDeclarationRec2(ast, null);
+    visitProcDeclarationRec2(ast, null);
+    /**
     idTable.enter (ast.I.spelling, ast); // permits recursion
     if (ast.duplicated)
       reporter.reportError ("identifier \"%\" already declared",
@@ -383,6 +393,7 @@ public final class Checker implements Visitor {
     ast.FPS.visit(this, null);
     ast.C.visit(this, null);
     idTable.closeScope();
+    */
     return null;
   }
 
@@ -415,7 +426,13 @@ public final class Checker implements Visitor {
     return null;
   }
   
+  //MODIFICADO por Luis Chavarría
   public Object visitVarInitDeclaration(VarInitDeclaration ast, Object o) {
+    TypeDenoter eType = (TypeDenoter) ast.E.visit(this, null);
+    idTable.enter(ast.I.spelling, ast);
+    if (ast.duplicated)
+      reporter.reportError ("identifier \"%\" already declared",
+                            ast.I.spelling, ast.position);
     return null;
   }
   
@@ -427,11 +444,20 @@ public final class Checker implements Visitor {
     return null;
   }
 
+  //MODIFICADO por Luis Chavarría
   public Object visitRecursiveProcFuncs(RecursiveProcFuncs ast, Object o) {
+    ast.D1.visit(this, null);
     return null;
   }
 
+  //MODIFICADO por Luis Chavarría
   public Object visitLocalDeclaration(LocalDeclaration ast, Object o) {
+    IdEntry alpha, beta;
+    ast.D1.visit(this, null);
+    alpha = idTable.beginLocal();
+    ast.D2.visit(this, null);
+    beta = idTable.beginIn();
+    idTable.endLocal(alpha, beta);
     return null;
   }
 
@@ -439,9 +465,65 @@ public final class Checker implements Visitor {
     return null;
   }
 
+  //MODIFICADO por Luis Chavarría
   public Object visitSequentialProcFunc(SequentialProcFunc ast, Object o) {
+    ast.D1.visit(this, null);
+    ast.D2.visit(this, null);
     return null;
   }
+  
+  //MODIFICADO por Luis Chavarría
+  //Primera mini pasada para el func declaration recursivo
+  public Object visitFuncDeclarationRec1(FuncDeclaration ast, Object o) {
+    ast.T = (TypeDenoter) ast.T.visit(this, null);
+    idTable.enter (ast.I.spelling, ast); 
+    if (ast.duplicated)
+        reporter.reportError ("identifier \"%\" already declared",
+        ast.I.spelling, ast.position);
+    idTable.openScope();
+    ast.FPS.visit(this, null);
+    idTable.closeScope();
+    return null;
+  } 
+  
+  //MODIFICADO por Luis Chavarría
+  //segunda mini pasada para el func declaration recursivo
+  public Object visitFuncDeclarationRec2(FuncDeclaration ast, Object o) {
+    ast.T = (TypeDenoter) ast.T.visit(this, null);
+    idTable.openScope();
+    ast.FPS.visit(this, null);
+    TypeDenoter eType = (TypeDenoter) ast.E.visit(this, null);
+    idTable.closeScope();
+    if (! ast.T.equals(eType))
+        reporter.reportError ("body of function \"%\" has wrong type",
+        ast.I.spelling, ast.E.position);
+    return null;
+  }
+  
+  //MODIFICADO por Luis Chavarría
+  //primera mini pasada para el proc recursivo
+  public Object visitProcDeclarationRec1(ProcDeclaration ast, Object o) {
+    idTable.enter (ast.I.spelling, ast); 
+    if (ast.duplicated)
+        reporter.reportError ("identifier \"%\" already declared",
+        ast.I.spelling, ast.position);
+    idTable.openScope();
+    ast.FPS.visit(this, null);
+    idTable.closeScope();
+    return null;
+  }
+  
+  //MODIFICADO por Luis Chavarría
+  //segunda mini pasada para el proc recursivo
+  public Object visitProcDeclarationRec2(ProcDeclaration ast, Object o) {
+    idTable.openScope();
+    ast.FPS.visit(this, null);
+    ast.C.visit(this, null);
+    idTable.closeScope();
+    return null;
+  }
+
+
   // </editor-fold> 
   
   // <editor-fold defaultstate="collapsed" desc=" Aggregates ">    

@@ -77,6 +77,27 @@ public final class IdentificationTable {
     entry = new IdEntry(id, attr, this.level, this.latest);
     this.latest = entry;
   }
+  
+  //MODIFICADO por Luis Chavarría
+  public IdEntry beginLocal(){
+    IdEntry alpha = this.latest;
+    return alpha;
+  }
+  
+  //MODIFICADO por Luis Chavarría
+  public IdEntry beginIn(){
+    IdEntry beta = this.latest;
+    return beta;
+  }
+  
+  //MODIFICADO por Luis Chavarría
+  public void endLocal(IdEntry alpha, IdEntry beta){
+    IdEntry entry = this.latest;
+    if (entry == beta){
+      entry = alpha;
+    }
+    this.latest = entry;
+  }
 
   // Finds an entry for the given identifier in the identification table,
   // if any. If there are several entries for that identifier, finds the
